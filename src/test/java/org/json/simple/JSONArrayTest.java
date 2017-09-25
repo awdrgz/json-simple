@@ -282,7 +282,8 @@ public class JSONArrayTest extends TestCase {
 		assertEquals("[\"Hello\"]", writer.toString());
 		
 		writer = new StringWriter();
-		JSONArray.writeJSONString(new Object[] { "Hello", new Integer(12), new int[] { 1, 2, 3} }, writer);
+		// new Integer() is deprecated
+		JSONArray.writeJSONString(new Object[] { "Hello", Integer.valueOf(12), new int[] { 1, 2, 3} }, writer);
 		assertEquals("[\"Hello\",12,[1,2,3]]", writer.toString());
 	}
 }
